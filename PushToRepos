@@ -1,0 +1,99 @@
+#!/bin/bash
+# this is the Shebang.  Must be on the first line.  Must have #! as first two characters.
+# The next sequence is the path (usually absolute) to the program that will run the file
+
+# Must change the permissions on the file.  Use chmod 755 filename.  This allows you to
+#  full control, but others can only read and execute.  chmod +x filename also works.
+
+# echo is the shell script equivalent of print
+echo "The goal of this script is to automatically push to nine Git repositories..."
+echo "C++/Concepts, C++/SHA-1_Algorithm, GitLearning, Linux, NetworkProgramming, OrbitalMechanics, Python, Space-related, and SystemsProgramming"
+echo
+echo
+
+# Save starting directory, then at end of script, return to it
+# A shell assignment is a single word
+ScriptDirectory=$PWD
+# Get the day of the week
+DOW=$(date +%A)
+
+#echo on
+set -x 
+
+# commands in a shell script are serialized, so each command will complete before execution of the next one
+
+echo "In C++/Concepts - committing and pushing to remote repository"
+cd /share/bbirmingham/C++/Concepts
+git add .
+git commit -a -m $DOW
+git push
+echo
+
+echo "In C++/SHA-1_Algorithm - committing and pushing to remote repository"
+cd /share/bbirmingham/C++/SHA-1_Algorithm
+git add .
+git commit -a -m $DOW
+git push
+echo
+
+echo "In GitLearning - committing and pushing to remote repository"
+cd /share/bbirmingham/GitLearning
+git add .
+git commit -a -m $DOW
+git push
+echo
+
+echo "In Isolation - committing and pushing to remote repository"
+cd /share/bbirmingham/Isolation
+git add .
+git commit -a -m $DOW
+git push
+echo
+
+echo "In Linux - committing and pushing to remote repository"
+cd /share/bbirmingham/Linux
+git add .
+git commit -a -m $DOW
+git push
+echo
+
+echo "In NetworkProgramming - committing and pushing to remote repository"
+cd /share/bbirmingham/NeworkProgramming
+git add .
+git commit -a -m $DOW
+git push
+echo
+
+echo "In Orbital Mechanics - committing and pushing to remote repository"
+cd /share/bbirmingham/OrbitalMechanics
+git add .
+git commit -a -m $DOW
+git push
+echo
+
+echo "In Python - committing and pushing to remote repository"
+cd /share/bbirmingham/Python
+git add .
+git commit -a -m $DOW
+git push
+echo
+
+echo "In Space-related - committing and pushing to remote repository"
+cd ~/Desktop/Space-related
+git add .
+git commit -a -m $DOW
+git push
+echo
+
+echo "In SystemsProgramming - committing and pushing to remote repository"
+cd ~/Desktop/SystemProgramming
+git add .
+git commit -a -m $DOW
+git push
+echo
+
+# return to starting directory...must prefix with $ sign
+cd $ScriptDirectory
+echo
+echo "Script completed"
+set +x

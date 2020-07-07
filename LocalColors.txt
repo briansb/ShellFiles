@@ -1,0 +1,37 @@
+#    https://askubuntu.com/questions/17299/what-do-the-different-colors-mean-in-ls
+
+
+    Blue: Directory
+    Green: Executable or recognized data file
+    Sky Blue: Symbolic link file
+    Yellow with black background: Device
+    Pink: Graphic image file
+    Red: Archive file
+    Red with black background: Broken link
+
+For your Information:
+
+    To turn the color off, you have to comment out the following lines in .bashrc.
+
+    # enable color support of ls and also add handy aliases
+    #if [ -x /usr/bin/dircolors ]; then
+    #    test -r ~/.dircolors && eval "$(dircolors -b ~/.dircolors)" || eval "$(dircolors -b)"
+    #    alias ls='ls --color=auto'
+    #    #alias dir='dir --color=auto'
+    #    #alias vdir='vdir --color=auto'
+    #
+    #    alias grep='grep --color=auto'
+    #    alias fgrep='fgrep --color=auto'
+    #    alias egrep='egrep --color=auto'
+    #fi
+
+    Also if you want to see your own bash color meanings,then copy/paste the following codes in your terminal.
+
+    eval $(echo "no:global default;fi:normal file;di:directory;ln:symbolic link;pi:named pipe;so:socket;do:door;bd:block device;cd:character device;or:orphan symlink;mi:missing file;su:set uid;sg:set gid;tw:sticky other writable;ow:other writable;st:sticky;ex:executable;"|sed -e 's/:/="/g; s/\;/"\n/g')           
+    {      
+      IFS=:     
+      for i in $LS_COLORS     
+      do        
+        echo -e "\e[${i#*=}m$( x=${i%=*}; [ "${!x}" ] && echo "${!x}" || echo "$x" )\e[m" 
+      done       
+    } 

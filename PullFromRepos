@@ -1,0 +1,82 @@
+#!/bin/bash
+# this is the Shebang.  Must be on the first line.  Must have #! as first two characters.
+# The next sequence is the path (usually absolute) to the program that will run the file
+
+# Must change the permissions on the file.  Use chmod 755 filename.  This allows you to
+#  full control, but others can only read and execute.  chmod +x filename also works.
+
+# echo is the shell script equivalent of print
+echo "The goal of this script is to automatically pull from nine Git repositories..."
+echo "C++/Concepts, C++/SHA-1_Algorithm, GitLearning, Linux, NetworkProgramming, OrbitalMechanics, Python, Space-related, and SystemsProgramming"
+echo " "
+
+# Save starting directory, then at end of script, return to it
+# A shell assignment is a single word
+ScriptDirectory=$PWD
+
+
+# this begins the development
+echo 
+echo "Thus begins the journey"
+echo
+
+#echo on
+set -x 
+
+# commands in a shell script are serialized, so each command will complete before execution of the next one
+
+echo "In C++/Concepts - pulling from remote repository"
+cd /share/bbirmingham/C++/Concepts
+git pull origin
+echo
+
+echo "In C++/SHA-1_Algorithm - pulling from remote repository"
+cd /share/bbirmingham/C++/SHA-1_Algorithm
+git pull origin
+echo
+
+echo "In GitLearning - pulling from remote repository"
+cd /share/bbirmingham/GitLearning
+git pull origin
+echo
+
+echo "In Isolation - pulling from remote repository"
+cd /share/bbirmingham/Isolation
+git pull origin
+echo
+
+echo "In Linux - pulling from remote repository"
+cd /share/bbirmingham/Linux
+git pull origin
+echo
+
+echo "In NetworkProgramming - pulling from remote repository"
+cd /share/bbirmingham/NetworkProgramming
+git pull origin
+echo
+
+echo "In Orbital Mechanics - pulling from remote repository"
+cd /share/bbirmingham/OrbitalMechanics
+git pull origin
+echo
+
+echo "In Python - pulling from remote repository"
+cd /share/bbirmingham/Python
+git pull origin
+echo
+
+echo "In Space-related - pulling from remote repository"
+cd /share/bbirmingham/Space-related
+git pull origin
+echo
+
+echo "In SystemsProgramming - pulling from remote repository"
+cd /share/bbirmingham/SystemProgramming
+git pull origin
+echo
+
+# return to starting directory...must prefix with $ sign
+cd $ScriptDirectory
+echo
+echo "Script completed"
+set +x
